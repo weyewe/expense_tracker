@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 20140521152637) do
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "depth"
+    t.boolean  "is_base_account", default: false
+    t.integer  "account_case",    default: 2
+    t.integer  "classification"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,11 +80,13 @@ ActiveRecord::Schema.define(version: 20140521152637) do
   create_table "expenses", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "category_id"
+    t.integer  "account_id"
+    t.boolean  "is_project_id_present", default: false
     t.integer  "project_id"
+    t.boolean  "is_venue_id_present",   default: false
     t.integer  "venue_id"
     t.datetime "expensed_at"
-    t.boolean  "is_deleted",  default: false
+    t.boolean  "is_deleted",            default: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

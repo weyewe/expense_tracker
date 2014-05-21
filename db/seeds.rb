@@ -141,3 +141,45 @@ data_entry_role = Role.create!(
   puts "Total ContractItem: #{ContractItem.all.count}"
   
   
+  ##################################
+  ################################## Expense Tracker
+  ##################################
+  ##################################
+  
+  # create contact
+  (1..4).each do |x|
+    Contact.create_object(
+      :name => "Contact name #{x}",
+      :description => "Contact description #{x}",
+      :user_id => admin.id 
+    )
+  end
+  puts "Total contact: #{Contact.count}"
+  
+  # create venue
+  (1..4).each do |x|
+    Venue.create_object(
+      :name => "Venue name #{x}",
+      :description => "Venue description #{x}",
+      :user_id => admin.id 
+    )
+  end
+  puts "Total venue: #{Venue.count}"
+  
+  # create project 
+  (1..4).each do |x|
+    Project.create_object(
+      :name => "Venue name #{x}",
+      :description => "Venue description #{x}",
+      :contact_id => Contact.first.id , 
+      :user_id => admin.id
+    )
+  end
+  puts "Total project: #{Project.count}"
+  
+  # create category 
+  Account.setup_business
+  
+  puts "Total account: #{Account.count}"
+  
+  

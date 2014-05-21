@@ -120,3 +120,10 @@ ACCOUNT_CASE = {
   # group account can have sub_groups and ledger_account 
   :ledger => 2  # ledger_account is where the journal is associated to
 } 
+
+ACCOUNT_CLASSIFICATION = {
+  :living => 1, 
+  :working => 2, 
+  :relationship => 3 , 
+  :personal_development => 4 
+}

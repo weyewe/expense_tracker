@@ -7,9 +7,10 @@ class CreateAccounts < ActiveRecord::Migration
       t.integer :lft
       t.integer :rgt
       t.integer :depth # this is optional.
-       
+       t.boolean :is_base_account, :default => false 
       
       t.integer :account_case , :default => ACCOUNT_CASE[:ledger]
+      t.integer :classification
 
 
       t.timestamps
