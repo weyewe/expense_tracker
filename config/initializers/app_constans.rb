@@ -113,3 +113,10 @@ SOLUTION_CASE = {
   :pending => 1,
   :solved =>  2    # 
 }
+
+# ========= for expense tracker
+ACCOUNT_CASE = {
+  :group => 1,  # group => can't create transaction on group_account
+  # group account can have sub_groups and ledger_account 
+  :ledger => 2  # ledger_account is where the journal is associated to
+} 

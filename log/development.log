@@ -41155,3 +41155,174 @@ Processing by Api::SessionsController#authenticate_auth_token as */*
   [1m[35mUser Load (34.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'CdhR5kwbytQ88EWxzXvX' LIMIT 1
 Filter chain halted as :authenticate_user_from_token! rendered or redirected
 Completed 200 OK in 65ms (Views: 0.6ms | ActiveRecord: 43.0ms)
+DEPRECATION WARNING: Devise.token_authentication_key= is deprecated and has no effect. (called from token_authentication_key= at (eval):6)
+DEPRECATION WARNING: Devise.token_authentication_key= is deprecated and has no effect. (called from token_authentication_key= at (eval):6)
+DEPRECATION WARNING: Devise.token_authentication_key= is deprecated and has no effect. (called from token_authentication_key= at (eval):6)
+DEPRECATION WARNING: Devise.token_authentication_key= is deprecated and has no effect. (called from token_authentication_key= at (eval):6)
+DEPRECATION WARNING: Devise.token_authentication_key= is deprecated and has no effect. (called from token_authentication_key= at (eval):6)
+DEPRECATION WARNING: Devise.token_authentication_key= is deprecated and has no effect. (called from token_authentication_key= at (eval):6)
+DEPRECATION WARNING: Devise.token_authentication_key= is deprecated and has no effect. (called from token_authentication_key= at (eval):6)
+DEPRECATION WARNING: Devise.token_authentication_key= is deprecated and has no effect. (called from token_authentication_key= at (eval):6)
+  [1m[36m (21.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (2.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCustomers (20140430073916)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (8.5ms)[0m  [1mCREATE TABLE "customers" ("id" serial primary key, "name" character varying(255), "address" text, "pic" text, "contact" text, "email" character varying(255), "is_deleted" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140430073916"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateItems (20140430073929)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "items" ("id" serial primary key, "customer_id" integer, "type_id" integer, "code" character varying(255), "description" text, "manufactured_at" timestamp, "warranty_expiry_date" timestamp, "is_deleted" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140430073929"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateContractMaintenances (20140430073950)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (152.6ms)[0m  [1mCREATE TABLE "contract_maintenances" ("id" serial primary key, "customer_id" integer, "name" character varying(255), "description" text, "code" character varying(255), "started_at" timestamp, "finished_at" timestamp, "is_deleted" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140430073950"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Migrating to DeviseCreateUsers (20140430074049)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "role_id" integer, "name" character varying(255), "username" character varying(255), "login" character varying(255), "is_deleted" boolean DEFAULT 'f', "is_main_user" boolean DEFAULT 'f', "authentication_token" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140430074049"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateRoles (20140430074614)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "roles" ("id" serial primary key, "name" character varying(255) NOT NULL, "title" character varying(255) NOT NULL, "description" text NOT NULL, "the_role" json NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140430074614"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTypes (20140430100629)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "types" ("id" serial primary key, "name" character varying(255), "description" text, "is_deleted" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140430100629"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateContractItems (20140506101327)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "contract_items" ("id" serial primary key, "contract_maintenance_id" integer, "customer_id" integer, "item_id" integer, "is_deleted" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140506101327"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMaintenanceSchedules (20140508080813)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "maintenance_schedules" ("id" serial primary key, "contract_maintenance_id" integer, "maintenance_date" timestamp, "customer_id" integer, "is_deleted" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140508080813"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMaintenances (20140508082817)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "maintenances" ("id" serial primary key, "maintenance_contract_id" integer, "maintenance_schedule_id" integer, "contract_item_id" integer, "item_id" integer, "customer_id" integer, "user_id" integer, "request_date" timestamp, "complaint" text, "case" integer DEFAULT 1, "diagnosis" text, "diagnosis_case" integer DEFAULT 1, "inspection_date" timestamp, "solution" text, "solution_case" integer DEFAULT 0, "finish_date" timestamp, "is_confirmed" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140508082817"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateContacts (20140521151843)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "contacts" ("id" serial primary key, "name" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140521151843"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateProjects (20140521151856)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (4.1ms)[0m  [1mCREATE TABLE "projects" ("id" serial primary key, "name" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140521151856"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAccounts (20140521151909)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "accounts" ("id" serial primary key, "name" character varying(255), "parent_id" integer, "lft" integer, "rgt" integer, "depth" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140521151909"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateVenues (20140521151922)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "venues" ("id" serial primary key, "name" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140521151922"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateExpenses (20140521151948)
+  [1m[35m (2.5ms)[0m  BEGIN
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "expenses" ("id" serial primary key, "name" character varying(255), "description" text, "category_id" integer, "project_id" integer, "venue_id" integer, "expensed_at" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140521151948"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateExpenseAllocations (20140521152637)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "expense_allocations" ("id" serial primary key, "contact_id" integer, "expense_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140521152637"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+DEPRECATION WARNING: Devise.token_authentication_key= is deprecated and has no effect. (called from token_authentication_key= at (eval):6)
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCustomers (20140430073916)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "customers" ("id" serial primary key, "name" character varying(255), "address" text, "pic" text, "contact" text, "email" character varying(255), "is_deleted" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140430073916"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateItems (20140430073929)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "items" ("id" serial primary key, "customer_id" integer, "type_id" integer, "code" character varying(255), "description" text, "manufactured_at" timestamp, "warranty_expiry_date" timestamp, "is_deleted" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140430073929"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateContractMaintenances (20140430073950)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "contract_maintenances" ("id" serial primary key, "customer_id" integer, "name" character varying(255), "description" text, "code" character varying(255), "started_at" timestamp, "finished_at" timestamp, "is_deleted" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140430073950"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to DeviseCreateUsers (20140430074049)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (6.3ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "role_id" integer, "name" character varying(255), "username" character varying(255), "login" character varying(255), "is_deleted" boolean DEFAULT 'f', "is_main_user" boolean DEFAULT 'f', "authentication_token" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140430074049"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateRoles (20140430074614)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "roles" ("id" serial primary key, "name" character varying(255) NOT NULL, "title" character varying(255) NOT NULL, "description" text NOT NULL, "the_role" json NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140430074614"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTypes (20140430100629)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (5.4ms)[0m  [1mCREATE TABLE "types" ("id" serial primary key, "name" character varying(255), "description" text, "is_deleted" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140430100629"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateContractItems (20140506101327)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "contract_items" ("id" serial primary key, "contract_maintenance_id" integer, "customer_id" integer, "item_id" integer, "is_deleted" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140506101327"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMaintenanceSchedules (20140508080813)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "maintenance_schedules" ("id" serial primary key, "contract_maintenance_id" integer, "maintenance_date" timestamp, "customer_id" integer, "is_deleted" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140508080813"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMaintenances (20140508082817)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (13.0ms)[0m  [1mCREATE TABLE "maintenances" ("id" serial primary key, "maintenance_contract_id" integer, "maintenance_schedule_id" integer, "contract_item_id" integer, "item_id" integer, "customer_id" integer, "user_id" integer, "request_date" timestamp, "complaint" text, "case" integer DEFAULT 1, "diagnosis" text, "diagnosis_case" integer DEFAULT 1, "inspection_date" timestamp, "solution" text, "solution_case" integer DEFAULT 0, "finish_date" timestamp, "is_confirmed" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140508082817"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateContacts (20140521151843)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "contacts" ("id" serial primary key, "name" character varying(255), "description" text, "user_id" integer, "is_deleted" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140521151843"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateProjects (20140521151856)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "projects" ("id" serial primary key, "name" character varying(255), "description" text, "is_deleted" boolean DEFAULT 'f', "contact_id" integer, "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140521151856"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAccounts (20140521151909)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "accounts" ("id" serial primary key, "name" character varying(255), "parent_id" integer, "lft" integer, "rgt" integer, "depth" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140521151909"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateVenues (20140521151922)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (6.6ms)[0m  [1mCREATE TABLE "venues" ("id" serial primary key, "name" character varying(255), "description" text, "is_deleted" boolean DEFAULT 'f', "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140521151922"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateExpenses (20140521151948)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "expenses" ("id" serial primary key, "name" character varying(255), "description" text, "category_id" integer, "project_id" integer, "venue_id" integer, "expensed_at" timestamp, "is_deleted" boolean DEFAULT 'f', "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140521151948"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateExpenseAllocations (20140521152637)
+  [1m[35m (0.9ms)[0m  BEGIN
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "expense_allocations" ("id" serial primary key, "contact_id" integer, "expense_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140521152637"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"

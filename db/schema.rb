@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508082817) do
+ActiveRecord::Schema.define(version: 20140521152637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contacts", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.boolean  "is_deleted",  default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contract_items", force: true do |t|
     t.integer  "contract_maintenance_id"
@@ -44,6 +63,26 @@ ActiveRecord::Schema.define(version: 20140508082817) do
     t.text     "contact"
     t.string   "email"
     t.boolean  "is_deleted", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "expense_allocations", force: true do |t|
+    t.integer  "contact_id"
+    t.integer  "expense_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "expenses", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "category_id"
+    t.integer  "project_id"
+    t.integer  "venue_id"
+    t.datetime "expensed_at"
+    t.boolean  "is_deleted",  default: false
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,6 +129,16 @@ ActiveRecord::Schema.define(version: 20140508082817) do
     t.datetime "updated_at"
   end
 
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "is_deleted",  default: false
+    t.integer  "contact_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "roles", force: true do |t|
     t.string   "name",        null: false
     t.string   "title",       null: false
@@ -131,5 +180,14 @@ ActiveRecord::Schema.define(version: 20140508082817) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "venues", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "is_deleted",  default: false
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

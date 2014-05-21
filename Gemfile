@@ -37,6 +37,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'awesome_nested_set'
+
 
 gem 'devise'
 gem "kaminari"  
