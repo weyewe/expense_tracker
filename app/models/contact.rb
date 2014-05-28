@@ -63,7 +63,6 @@ class Contact < ActiveRecord::Base
   def update_object(params)
     self.name    =  ( params[:name].present? ? params[:name   ].to_s.upcase : nil  ) 
     self.description  = params[:description]
-    self.user_id      = params[:user_id    ] 
     self.save
     
     return self

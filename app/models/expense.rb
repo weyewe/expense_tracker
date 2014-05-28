@@ -38,7 +38,7 @@ class Expense < ActiveRecord::Base
   
   def self.create_object( params ) 
     new_object           = self.new
-    new_object.name    = params[:name] ( params[:name].present? ? params[:name].to_s.upcase : nil )  
+    new_object.name    =   ( params[:name].present? ? params[:name].to_s.upcase : nil )  
     new_object.description  = params[:description]
     
     new_object.expensed_at  = params[:user_id    ] 

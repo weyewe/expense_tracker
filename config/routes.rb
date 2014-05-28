@@ -20,6 +20,8 @@ Ticketie::Application.routes.draw do
     resources :contract_maintenances 
     resources :contract_items 
     
+    resources :contacts
+    
     
   end
   

@@ -89,6 +89,18 @@ Ext.define("AM.controller.Master", {
 						action : 'index'
 					}
 				]
+			},
+			{ 
+				text:'Contact', 
+				viewClass:'AM.view.master.Contact', 
+				leaf:true, 
+				iconCls:'text',
+				conditions : [
+					{
+						controller : 'contacts',
+						action : 'index'
+					}
+				]
 			} 
     ]
 	},

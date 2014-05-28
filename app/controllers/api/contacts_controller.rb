@@ -30,6 +30,7 @@ class Api::ContactsController < Api::BaseApiController
   end
 
   def create
+    params[:contact][:user_id] = current_user.id 
     @object = Contact.create_object( params[:contact] )  
     
     
