@@ -30,6 +30,8 @@ class Api::ProjectsController < Api::BaseApiController
   end
 
   def create
+    
+    params[:project][:user_id] = current_user.id 
     @object = Project.create_object( params[:project] )  
     
     

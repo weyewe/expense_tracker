@@ -6,7 +6,7 @@ class CreateProjects < ActiveRecord::Migration
       
       t.boolean :is_deleted , :default => false 
       
-      t.integer :contact_id 
+    
       t.integer :user_id 
 
       t.timestamps

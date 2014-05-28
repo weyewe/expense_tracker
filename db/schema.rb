@@ -147,7 +147,6 @@ ActiveRecord::Schema.define(version: 20140521152637) do
     t.string   "name"
     t.text     "description"
     t.boolean  "is_deleted",  default: false
-    t.integer  "contact_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

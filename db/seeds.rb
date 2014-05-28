@@ -169,9 +169,8 @@ data_entry_role = Role.create!(
   # create project 
   (1..4).each do |x|
     Project.create_object(
-      :name => "Venue name #{x}",
-      :description => "Venue description #{x}",
-      :contact_id => Contact.first.id , 
+      :name => "Project name #{x}",
+      :description => "Project description #{x}", 
       :user_id => admin.id
     )
   end

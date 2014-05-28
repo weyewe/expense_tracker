@@ -1,6 +1,5 @@
 class Project < ActiveRecord::Base
   has_many :expenses
-  belongs_to :contact 
   belongs_to :user
   
    
@@ -9,6 +8,17 @@ class Project < ActiveRecord::Base
     
   
   validate :unique_non_deleted_name_on_current_user
+  
+  validate :valid_user_id
+  
+  def valid_user_id
+    assigned_user =  User.find_by_id user_id
+    
+    if assigned_user.nil?
+      self.errors.add(:user_id , "Harus ada dan valid")
+      return self
+    end
+  end
   
   
   def unique_non_deleted_name_on_current_user
@@ -52,7 +62,6 @@ class Project < ActiveRecord::Base
   def update_object(params)
     self.name    =  ( params[:name].present? ? params[:name   ].to_s.upcase : nil  ) 
     self.description  = params[:description]
-    self.user_id      = params[:user_id    ] 
     self.save
     
     return self
