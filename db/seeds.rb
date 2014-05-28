@@ -178,7 +178,7 @@ data_entry_role = Role.create!(
   puts "Total project: #{Project.count}"
   
   # create category 
-  Account.setup_business
+  Account.setup_business(admin)
   
   puts "Total account: #{Account.count}"
   

@@ -114,6 +114,11 @@ SOLUTION_CASE = {
   :solved =>  2    # 
 }
 
+NORMAL_BALANCE = {
+  :debit => 1 , 
+  :credit => 2 
+}
+
 # ========= for expense tracker
 ACCOUNT_CASE = {
   :group => 1,  # group => can't create transaction on group_account

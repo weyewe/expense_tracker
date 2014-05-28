@@ -1,13 +1,27 @@
 class Account < ActiveRecord::Base
   acts_as_nested_set
+  belongs_to :user 
   has_many :expenses 
   
-  validates_presence_of :name, :account_case 
+  validates_presence_of :name, :account_case , :user_id 
   
   
   
   validate :parent_id_present_for_non_base_account
   validate :valid_account_case
+  
+  validate :valid_user_id
+  
+  def valid_user_id
+    assigned_user =  User.find_by_id user_id
+    
+    if assigned_user.nil?
+      self.errors.add(:user_id , "Harus ada dan valid")
+      return self
+    end
+  end
+  
+  
   
   def unique_non_deleted_name_on_current_user
     return if user_id.nil? or name.nil? 
@@ -48,6 +62,10 @@ class Account < ActiveRecord::Base
     end
   end
   
+  def self.active_accounts
+    self.where(:is_temporary_account => false )
+  end
+  
   def valid_account_case
     return if not all_base_fields_present?
     
@@ -68,7 +86,7 @@ class Account < ActiveRecord::Base
     new_object.name                      =  ( params[:name].present? ? params[:name   ].to_s.upcase : nil )  
     new_object.parent_id                 = params[:parent_id]
     new_object.account_case              = params[:account_case] 
-    
+    new_object.user_id = params[:user_id]
     
 
 
@@ -112,53 +130,57 @@ class Account < ActiveRecord::Base
   
   
   # http://e27.co/li-ka-shing-teaches-buy-car-house-5-years/
-  def self.setup_business
-    self.create_base_objects #   daily food, other expenses  
+  def self.setup_business(creator)
+    self.create_base_objects(creator) #   daily food, other expenses  
   end
   
-  def self.create_base_objects 
-    self.create_living
-    self.create_working
-    self.create_relationship
-    self.create_personal_development  
+  def self.create_base_objects(creator)
+    self.create_living(creator)
+    self.create_working(creator)
+    self.create_relationship(creator)
+    self.create_personal_development(creator)
   end
   
-  def self.create_living 
+  def self.create_living(creator)
     new_object = self.new
     new_object.name = "Living" 
     new_object.account_case = ACCOUNT_CASE[:group]
     new_object.classification = ACCOUNT_CLASSIFICATION[:living]
-    new_object.is_base_account = true 
+    new_object.is_base_account = true
+    new_object.user_id = creator.id  
     new_object.save 
     return new_object
   end
   
-  def self.create_working 
+  def self.create_working(creator)
     new_object = self.new
     new_object.name = "Working" 
     new_object.account_case = ACCOUNT_CASE[:group]
     new_object.classification = ACCOUNT_CLASSIFICATION[:working]
     new_object.is_base_account = true 
+    new_object.user_id = creator.id 
     new_object.save 
     return new_object
   end
   
-  def self.create_relationship 
+  def self.create_relationship(creator)
     new_object = self.new
     new_object.name = "Relationship" 
     new_object.account_case = ACCOUNT_CASE[:group]
     new_object.classification = ACCOUNT_CLASSIFICATION[:relationship]
     new_object.is_base_account = true 
+    new_object.user_id = creator.id 
     new_object.save 
     return new_object
   end
   
-  def self.create_personal_development 
+  def self.create_personal_development(creator) 
     new_object = self.new
     new_object.name = "Personal Development" 
     new_object.account_case = ACCOUNT_CASE[:group]
     new_object.classification = ACCOUNT_CLASSIFICATION[:personal_development]
     new_object.is_base_account = true 
+    new_object.user_id = creator.id 
     new_object.save 
     return new_object
   end

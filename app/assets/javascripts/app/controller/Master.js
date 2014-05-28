@@ -113,6 +113,18 @@ Ext.define("AM.controller.Master", {
 						action : 'index'
 					}
 				]
+			},
+			{ 
+				text:'Account', 
+				viewClass:'AM.view.accounting.ChartOfAccounts', 
+				leaf:true, 
+				iconCls:'text',
+				conditions : [
+					{
+						controller : 'venues',
+						action : 'index'
+					}
+				]
 			} 
     ]
 	},
