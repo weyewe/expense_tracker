@@ -43071,3 +43071,23 @@ DEPRECATION WARNING: #connection is deprecated in favour of accessing it via the
   [1m[35mSQL (0.6ms)[0m  UPDATE "accounts" SET "depth" = 0 WHERE "accounts"."id" IN (SELECT "accounts"."id" FROM "accounts" WHERE "accounts"."id" = 4 ORDER BY "accounts"."lft")
   [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
   [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "accounts"
+DEPRECATION WARNING: Devise.token_authentication_key= is deprecated and has no effect. (called from token_authentication_key= at (eval):6)
+  [1m[36m (24.4ms)[0m  [1mSELECT COUNT(*) FROM "contacts"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (29.9ms)[0m  [1mSELECT COUNT(*) FROM "contacts" WHERE (("contacts"."user_id" = 0 AND "contacts"."name" = 'WILLY' AND "contacts"."is_deleted" = 'f'))[0m
+  [1m[35mSQL (129.8ms)[0m  INSERT INTO "contacts" ("created_at", "description", "name", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Thu, 22 May 2014 11:46:24 UTC +00:00], ["description", "Awesome"], ["name", "WILLY"], ["updated_at", Thu, 22 May 2014 11:46:24 UTC +00:00], ["user_id", 0]]
+  [1m[36m (24.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "contacts" WHERE (("contacts"."user_id" = 0 AND "contacts"."name" = 'WILLY BOOM' AND "contacts"."is_deleted" = 'f'))[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "contacts" ("created_at", "description", "name", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Thu, 22 May 2014 11:47:01 UTC +00:00], ["description", "Awesome"], ["name", "WILLY BOOM"], ["updated_at", Thu, 22 May 2014 11:47:01 UTC +00:00], ["user_id", 0]]
+  [1m[36m (27.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "contacts" WHERE (("contacts"."user_id" = 0 AND "contacts"."name" = 'WILLY BOOM 2' AND "contacts"."is_deleted" = 'f'))[0m
+  [1m[35mUser Load (39.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 0 LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "contacts" ("created_at", "description", "name", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Thu, 22 May 2014 11:47:48 UTC +00:00], ["description", "Awesome"], ["name", "WILLY BOOM 2"], ["updated_at", Thu, 22 May 2014 11:47:48 UTC +00:00], ["user_id", 0]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "contacts" WHERE (("contacts"."user_id" = 0 AND "contacts"."name" = 'WILLY BOOM 3' AND "contacts"."is_deleted" = 'f'))
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 0 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+DEPRECATION WARNING: Devise.token_authentication_key= is deprecated and has no effect. (called from token_authentication_key= at (eval):6)

@@ -2,6 +2,8 @@ class Contact < ActiveRecord::Base
   has_many :expenses, :through => :expense_allocations 
   has_many :expense_allocations 
   
+  belongs_to :user
+  
    
   validates_presence_of :name  
   validates_presence_of :user_id 
@@ -9,6 +11,16 @@ class Contact < ActiveRecord::Base
   
   validate :unique_non_deleted_name_on_current_user
   
+  validate :valid_user_id
+  
+  def valid_user_id
+    assigned_user =  User.find_by_id user_id
+    
+    if assigned_user.nil?
+      self.errors.add(:user_id , "Harus ada dan valid")
+      return self
+    end
+  end
   
   def unique_non_deleted_name_on_current_user
     return if user_id.nil? or name.nil? 
