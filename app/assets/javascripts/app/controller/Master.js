@@ -101,6 +101,18 @@ Ext.define("AM.controller.Master", {
 						action : 'index'
 					}
 				]
+			},
+			{ 
+				text:'Venue', 
+				viewClass:'AM.view.master.Venue', 
+				leaf:true, 
+				iconCls:'text',
+				conditions : [
+					{
+						controller : 'venues',
+						action : 'index'
+					}
+				]
 			} 
     ]
 	},

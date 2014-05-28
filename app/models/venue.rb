@@ -6,7 +6,8 @@ class Venue < ActiveRecord::Base
   validates_presence_of :user_id 
     
   
-  validate :unique_non_deleted_name_on_current_user
+  validate :unique_non_deleted_name_on_current_user  
+  validate :valid_user_id
   
   
   def unique_non_deleted_name_on_current_user
@@ -32,6 +33,15 @@ class Venue < ActiveRecord::Base
       end
     end
   end
+  
+  def valid_user_id
+    assigned_user =  User.find_by_id user_id
+    
+    if assigned_user.nil?
+      self.errors.add(:user_id , "Harus ada dan valid")
+      return self
+    end
+  end
  
   
   def self.create_object( params ) 
@@ -50,7 +60,6 @@ class Venue < ActiveRecord::Base
   def update_object(params)
     self.name    =  ( params[:name].present? ? params[:name   ].to_s.upcase : nil  ) 
     self.description  = params[:description]
-    self.user_id      = params[:user_id    ] 
     self.save
     
     return self

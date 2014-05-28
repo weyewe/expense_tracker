@@ -21,7 +21,7 @@ Ticketie::Application.routes.draw do
     resources :contract_items 
     
     resources :contacts
-    
+    resources :venues
     
   end
   

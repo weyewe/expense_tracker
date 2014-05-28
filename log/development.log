@@ -45415,3 +45415,384 @@ Processing by Api::ContactsController#index as JSON
   [1m[35mContact Load (0.5ms)[0m  SELECT "contacts".* FROM "contacts" WHERE "contacts"."is_deleted" = 'f' ORDER BY id DESC LIMIT 10 OFFSET 0
   Rendered api/contacts/index.json.jbuilder (3.7ms)
 Completed 200 OK in 32ms (Views: 17.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 16:02:05 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 711ms (Views: 708.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/grid.css?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/ext-all-debug-w-comments.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/model/Contact.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/model/Contract.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/model/ContractItem.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/model/Customer.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/model/Item.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/model/NavigationProcess.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/model/Type.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/model/User.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/model/Venue.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/store/Venues.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/store/Contacts.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/store/ContractItems.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/store/Contracts.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/store/Customers.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:06 +0700
+
+
+Started GET "/assets/app/store/Items.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/MasterProcessPanel.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/store/Navigations.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/store/Types.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/store/Users.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/AuthenticationForm.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/Content.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/Navigation.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/OperationProcessPanel.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/ProtectedContent.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/Viewport.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/Worksheet.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/header/EditPassword.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/master/Contact.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/master/Contract.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/master/Customer.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/master/CustomerList.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/master/Default.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/master/Item.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/master/MasterProcessList.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/master/Type.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/master/User.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/master/Venue.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:07 +0700
+
+
+Started GET "/assets/app/view/master/contact/Form.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/contact/List.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/contract/Form.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/contract/contractitem/List.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/contract/List.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/contract/contractitem/Form.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/customer/Form.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/customer/List.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/item/Form.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/item/List.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/type/Form.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/type/List.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/venue/Form.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/venue/List.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/user/Form.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/operation/OperationProcessList.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/operation/maintenanceschedule/Form.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/master/user/List.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/operation/Default.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/operation/MaintenanceSchedule.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/operation/maintenanceschedule/List.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/operation/maintenancescheduledetail/Form.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/view/operation/maintenancescheduledetail/List.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/controller/Authentication.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/controller/Authorization.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/controller/BaseTreeBuilder.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/controller/Contacts.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/controller/Contracts.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/controller/Customers.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/controller/Items.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/controller/Master.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/controller/Venues.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:08 +0700
+
+
+Started GET "/assets/app/controller/MasterTreeNavigation.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:09 +0700
+
+
+Started GET "/assets/app/controller/Types.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:09 +0700
+
+
+Started GET "/assets/app/controller/Users.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:09 +0700
+
+
+Started GET "/assets/app/controller/Navigation.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:09 +0700
+
+
+Started GET "/assets/app/controller/Operation.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:09 +0700
+
+
+Started GET "/assets/app/controller/OperationTreeNavigation.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:09 +0700
+
+
+Started GET "/assets/app.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:09 +0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-28 16:02:09 +0700
+
+
+Started POST "/api/authenticate_auth_token?auth_token=jxrKAFh_Da-xRbuJzyPj" for 127.0.0.1 at 2014-05-28 16:02:10 +0700
+Processing by Api::SessionsController#authenticate_auth_token as */*
+  Parameters: {"auth_token"=>"jxrKAFh_Da-xRbuJzyPj", "session"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'jxrKAFh_Da-xRbuJzyPj' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mRole Load (0.4ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 ORDER BY "roles"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 304ms (Views: 0.3ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/api/venues.json?_dc=1401267736912&page=1&start=0&limit=10&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22DESC%22%7D%5D&auth_token=jxrKAFh_Da-xRbuJzyPj" for 127.0.0.1 at 2014-05-28 16:02:16 +0700
+
+ActionController::RoutingError (No route matches [GET] "/api/venues.json"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.2) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.2) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.2) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.2) lib/thin/connection.rb:53:in `process'
+  thin (1.6.2) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.2) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.2) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.0.0) lib/rails/commands/server.rb:84:in `start'
+  railties (4.0.0) lib/rails/commands.rb:78:in `block in <top (required)>'
+  railties (4.0.0) lib/rails/commands.rb:73:in `tap'
+  railties (4.0.0) lib/rails/commands.rb:73:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+  Rendered /Users/weyewe/.rvm/gems/ruby-1.9.3-p286@rails-3.1.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /Users/weyewe/.rvm/gems/ruby-1.9.3-p286@rails-3.1.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (15.0ms)
+  Rendered /Users/weyewe/.rvm/gems/ruby-1.9.3-p286@rails-3.1.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.5ms)
+  Rendered /Users/weyewe/.rvm/gems/ruby-1.9.3-p286@rails-3.1.1/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (264.9ms)
+
+
+Started GET "/api/venues.json?_dc=1401267745417&page=1&start=0&limit=10&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22DESC%22%7D%5D&auth_token=jxrKAFh_Da-xRbuJzyPj" for 127.0.0.1 at 2014-05-28 16:02:25 +0700
+Processing by Api::VenuesController#index as JSON
+  Parameters: {"_dc"=>"1401267745417", "page"=>"1", "start"=>"0", "limit"=>"10", "sort"=>"[{\"property\":\"id\",\"direction\":\"DESC\"}]", "auth_token"=>"jxrKAFh_Da-xRbuJzyPj"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'jxrKAFh_Da-xRbuJzyPj' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mRole Load (0.5ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 ORDER BY "roles"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "venues" WHERE "venues"."is_deleted" = 'f'[0m
+  [1m[35mVenue Load (0.6ms)[0m  SELECT "venues".* FROM "venues" WHERE "venues"."is_deleted" = 'f' ORDER BY id DESC LIMIT 10 OFFSET 0
+  Rendered api/venues/index.json.jbuilder (38.0ms)
+Completed 200 OK in 326ms (Views: 51.2ms | ActiveRecord: 8.9ms)
+
+
+Started PUT "/api/venues/4.json?_dc=1401267750147&auth_token=jxrKAFh_Da-xRbuJzyPj" for 127.0.0.1 at 2014-05-28 16:02:30 +0700
+Processing by Api::VenuesController#update as JSON
+  Parameters: {"venue"=>{"id"=>4, "name"=>"VENUE NAME 4 44", "description"=>"Venue description 4"}, "_dc"=>"1401267750147", "auth_token"=>"jxrKAFh_Da-xRbuJzyPj", "id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'jxrKAFh_Da-xRbuJzyPj' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mRole Load (1.1ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 ORDER BY "roles"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mVenue Load (0.5ms)[0m  SELECT "venues".* FROM "venues" WHERE "venues"."id" = 4 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "venues" WHERE (("venues"."user_id" = 3 AND "venues"."name" = 'VENUE NAME 4 44' AND "venues"."is_deleted" = 'f'))
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  UPDATE "venues" SET "name" = $1, "updated_at" = $2 WHERE "venues"."id" = 4  [["name", "VENUE NAME 4 44"], ["updated_at", Wed, 28 May 2014 09:02:30 UTC +00:00]]
+  [1m[36m (28.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "venues" WHERE "venues"."is_deleted" = 'f'
+Completed 200 OK in 61ms (Views: 1.2ms | ActiveRecord: 34.2ms)
+
+
+Started GET "/api/venues.json?_dc=1401267750266&page=1&start=0&limit=10&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22DESC%22%7D%5D&auth_token=jxrKAFh_Da-xRbuJzyPj" for 127.0.0.1 at 2014-05-28 16:02:30 +0700
+Processing by Api::VenuesController#index as JSON
+  Parameters: {"_dc"=>"1401267750266", "page"=>"1", "start"=>"0", "limit"=>"10", "sort"=>"[{\"property\":\"id\",\"direction\":\"DESC\"}]", "auth_token"=>"jxrKAFh_Da-xRbuJzyPj"}
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'jxrKAFh_Da-xRbuJzyPj' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mRole Load (0.5ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 ORDER BY "roles"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "venues" WHERE "venues"."is_deleted" = 'f'
+  [1m[36mVenue Load (1.0ms)[0m  [1mSELECT "venues".* FROM "venues" WHERE "venues"."is_deleted" = 'f' ORDER BY id DESC LIMIT 10 OFFSET 0[0m
+  Rendered api/venues/index.json.jbuilder (5.7ms)
+Completed 200 OK in 40ms (Views: 17.7ms | ActiveRecord: 5.7ms)
+
+
+Started DELETE "/api/venues/4.json?_dc=1401267754052&auth_token=jxrKAFh_Da-xRbuJzyPj" for 127.0.0.1 at 2014-05-28 16:02:34 +0700
+Processing by Api::VenuesController#destroy as JSON
+  Parameters: {"venue"=>{"id"=>4, "name"=>"VENUE NAME 4 44", "description"=>"Venue description 4"}, "_dc"=>"1401267754052", "auth_token"=>"jxrKAFh_Da-xRbuJzyPj", "id"=>"4"}
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'jxrKAFh_Da-xRbuJzyPj' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mRole Load (0.4ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 ORDER BY "roles"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mVenue Load (0.6ms)[0m  [1mSELECT "venues".* FROM "venues" WHERE "venues"."id" = $1 LIMIT 1[0m  [["id", "4"]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "expenses" WHERE "expenses"."venue_id" = $1 AND "expenses"."is_deleted" = 'f'  [["venue_id", 4]]
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "venues" WHERE (("venues"."user_id" = 3 AND "venues"."name" = 'VENUE NAME 4 44' AND "venues"."is_deleted" = 'f'))
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  UPDATE "venues" SET "is_deleted" = $1, "updated_at" = $2 WHERE "venues"."id" = 4  [["is_deleted", true], ["updated_at", Wed, 28 May 2014 09:02:34 UTC +00:00]]
+  [1m[36m (10.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "venues" WHERE "venues"."is_deleted" = 'f'
+Completed 200 OK in 64ms (Views: 0.4ms | ActiveRecord: 19.9ms)
+
+
+Started GET "/api/venues.json?_dc=1401267754064&page=1&start=0&limit=10&sort=%5B%7B%22property%22%3A%22name%22%2C%22direction%22%3A%22ASC%22%7D%5D&auth_token=jxrKAFh_Da-xRbuJzyPj" for 127.0.0.1 at 2014-05-28 16:02:34 +0700
+Processing by Api::VenuesController#index as JSON
+  Parameters: {"_dc"=>"1401267754064", "page"=>"1", "start"=>"0", "limit"=>"10", "sort"=>"[{\"property\":\"name\",\"direction\":\"ASC\"}]", "auth_token"=>"jxrKAFh_Da-xRbuJzyPj"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'jxrKAFh_Da-xRbuJzyPj' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mRole Load (0.4ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 ORDER BY "roles"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "venues" WHERE "venues"."is_deleted" = 'f'
+  [1m[36mVenue Load (2.3ms)[0m  [1mSELECT "venues".* FROM "venues" WHERE "venues"."is_deleted" = 'f' ORDER BY id DESC LIMIT 10 OFFSET 0[0m
+  Rendered api/venues/index.json.jbuilder (7.9ms)
+Completed 200 OK in 40ms (Views: 19.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/api/venues.json?_dc=1401267756375&page=1&start=0&limit=10&sort=%5B%7B%22property%22%3A%22name%22%2C%22direction%22%3A%22ASC%22%7D%5D&auth_token=jxrKAFh_Da-xRbuJzyPj" for 127.0.0.1 at 2014-05-28 16:02:36 +0700
+Processing by Api::VenuesController#index as JSON
+  Parameters: {"_dc"=>"1401267756375", "page"=>"1", "start"=>"0", "limit"=>"10", "sort"=>"[{\"property\":\"name\",\"direction\":\"ASC\"}]", "auth_token"=>"jxrKAFh_Da-xRbuJzyPj"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'jxrKAFh_Da-xRbuJzyPj' LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mRole Load (0.4ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 ORDER BY "roles"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "venues" WHERE "venues"."is_deleted" = 'f'[0m
+  [1m[35mVenue Load (0.6ms)[0m  SELECT "venues".* FROM "venues" WHERE "venues"."is_deleted" = 'f' ORDER BY id DESC LIMIT 10 OFFSET 0
+  Rendered api/venues/index.json.jbuilder (3.7ms)
+Completed 200 OK in 32ms (Views: 17.5ms | ActiveRecord: 2.8ms)

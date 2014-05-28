@@ -30,6 +30,7 @@ class Api::VenuesController < Api::BaseApiController
   end
 
   def create
+    params[:venue][:user_id] = current_user.id 
     @object = Venue.create_object( params[:venue] )  
     
     
