@@ -24,6 +24,11 @@ Ticketie::Application.routes.draw do
     resources :venues
     resources :accounts
     resources :projects 
+    resources :expenses
+    
+    get 'search_project' => 'projects#search', :as => :search_project, :method => :get
+    get 'search_venue' => 'venues#search', :as => :search_venue, :method => :get
+    get 'search_account' => 'accounts#search_ledger', :as => :search_account, :method => :get
     
   end
   

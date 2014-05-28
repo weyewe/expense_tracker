@@ -4,7 +4,7 @@ class Api::ExpensesController < Api::BaseApiController
     
     if params[:livesearch].present? 
       livesearch = "%#{params[:livesearch]}%"
-      @objects = Expense.active_objects.where{
+      @objects = Expense.includes(:account, :project, :venue).active_objects.where{
         (is_deleted.eq false) & 
         (
           (name =~  livesearch )  
@@ -20,7 +20,7 @@ class Api::ExpensesController < Api::BaseApiController
         
       }.count
     else
-      @objects = Expense.active_objects.page(params[:page]).per(params[:limit]).order("id DESC")
+      @objects = Expense.includes(:account, :project, :venue).active_objects.page(params[:page]).per(params[:limit]).order("id DESC")
       @total = Expense.active_objects.count
     end
     
@@ -30,15 +30,34 @@ class Api::ExpensesController < Api::BaseApiController
   end
 
   def create
+    
+    params[:expense][:expensed_at] =  parse_date( params[:expense][:expensed_at] )
+    params[:expense][:user_id] =  current_user.id 
     @object = Expense.create_object( params[:expense] )  
     
     
  
     if @object.errors.size == 0 
+      puts "no error"
       render :json => { :success => true, 
-                        :expenses => [@object] , 
+                        :expenses => [
+                          :id 				    => 			@object.id              ,
+                        	:name				    => 			@object.name            ,
+                        	:description    => 			@object.description     ,
+                        	:amount 		    => 			@object.amount          ,
+                        	:account_id     => 			@object.account_id      ,
+                        	:account_name   => 			@object.account.name    ,
+                        	:project_id     => 			@object.project_id      ,
+                        	:project_name   => 			@object.project.name    ,
+                        	:venue_id 	    => 			@object.venue_id        ,
+                        	:venue_name     => 			@object.venue.name      ,
+                        	:expensed_at    => format_date_friendly( @object.expensed_at )
+                          
+                          
+                          ] , 
                         :total => Expense.active_objects.count }  
     else
+      puts "Some error"
       msg = {
         :success => false, 
         :message => {
@@ -53,6 +72,8 @@ class Api::ExpensesController < Api::BaseApiController
   def update
     
     @object = Expense.find_by_id params[:id] 
+    
+    params[:expense][:expensed_at] =  parse_date( params[:expense][:expensed_at] )
     @object.update_object( params[:expense])
      
     if @object.errors.size == 0 

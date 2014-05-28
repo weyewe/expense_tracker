@@ -4,6 +4,8 @@ class CreateExpenses < ActiveRecord::Migration
       t.string :name
       t.text :description 
       
+      t.decimal :amount , :default        => 0,  :precision => 14, :scale => 2 # 10*12 999 * 10^9
+      
       t.integer :account_id
       t.boolean :is_project_id_present, :default => false 
       t.integer :project_id 

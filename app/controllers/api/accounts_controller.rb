@@ -1,10 +1,12 @@
 class Api::AccountsController < Api::BaseApiController
   
   def index
+    current_user_id = current_user.id 
     
     if params[:livesearch].present? 
       livesearch = "%#{params[:livesearch]}%"
       @objects = Account.where{
+        ( user_id.eq current_user_id) & 
         (is_deleted.eq false) & 
         (
           (name =~  livesearch )
@@ -13,6 +15,7 @@ class Api::AccountsController < Api::BaseApiController
       }.page(params[:page]).per(params[:limit]).order("id DESC")
       
       @total = Account.where{
+        ( user_id.eq current_user_id) & 
         (is_deleted.eq false) & 
         (
           (name =~  livesearch )
@@ -22,7 +25,7 @@ class Api::AccountsController < Api::BaseApiController
       # calendar
       
     else
-      @objects = Account.active_accounts.where(:depth => 0).order("id ASC")
+      @objects = Account.active_accounts.where(:depth => 0, :user_id => current_user_id).order("id ASC")
       @total = @objects.count 
     end
     
@@ -120,27 +123,33 @@ class Api::AccountsController < Api::BaseApiController
     
     query = "%#{search_params}%"
     # on PostGre SQL, it is ignoring lower case or upper case 
-    
+    current_user_id = current_user.id 
     if  selected_id.nil?
       @objects = Account.active_accounts.where{ 
                           (name =~ query)  & 
-                          (account_case.eq ACCOUNT_CASE[:ledger])
+                          (account_case.eq ACCOUNT_CASE[:ledger]) & 
+                          (user_id.eq current_user_id)
         
                               }.
                         page(params[:page]).
                         per(params[:limit]).
                         order("id DESC")
                         
-      @total =  Account.active_accounts.where{ (name =~ query)                   & 
+      @total =  Account.active_accounts.where{ 
+                      (name =~ query)                   & 
+                      (user_id.eq current_user_id) & 
                         (account_case.eq ACCOUNT_CASE[:ledger])  }.count
     else
       @objects = Account.active_accounts.where{ (id.eq selected_id)  & 
-                                  (account_case.eq ACCOUNT_CASE[:ledger])
+                                  (account_case.eq ACCOUNT_CASE[:ledger]) &  
+                                  (user_id.eq current_user_id)
                               }.
                         page(params[:page]).
                         per(params[:limit]).
                         order("id DESC")
-      @total =  Account.active_accounts.where{ (id.eq selected_id)                   & 
+      @total =  Account.active_accounts.where{ 
+                    (id.eq selected_id)                   & 
+                  (user_id.eq current_user_id)
                         (account_case.eq ACCOUNT_CASE[:ledger])  }.count
     end
     

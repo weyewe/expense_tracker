@@ -84,10 +84,22 @@ Ext.define("AM.controller.Operation", {
 				leaf:true, 
 				iconCls:'text',
 				conditions : [
-				{
-					controller : 'projects',
-					action : 'index'
-				}
+					{
+						controller : 'projects',
+						action : 'index'
+					}
+				]
+			},
+			{ 
+				text:'Expense', 
+				viewClass:'AM.view.operation.Expense', 
+				leaf:true, 
+				iconCls:'text',
+				conditions : [
+					{
+						controller : 'expenses',
+						action : 'index'
+					}
 				]
 			} 
     ]

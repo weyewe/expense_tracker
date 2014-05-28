@@ -45,7 +45,9 @@ class User < ActiveRecord::Base
      new_user.is_main_user = true
  
 
-     new_user.save 
+     if new_user.save 
+       Account.setup_business(new_user)
+     end
 
      return new_user 
    end

@@ -177,8 +177,36 @@ data_entry_role = Role.create!(
   puts "Total project: #{Project.count}"
   
   # create category 
-  Account.setup_business(admin)
+  puts "The admin id : #{admin.id }"
+  
+  
+  last_account = admin.accounts.last 
+   
+  networking_meal_account = Account.create_object(
+  {
+    :name                      =>  "Banzai"  , 
+    :parent_id                 =>  last_account.id  , 
+    :account_case              => ACCOUNT_CASE[:ledger] , 
+    :user_id                   =>  admin.id 
+  },
+    false 
+  )
   
   puts "Total account: #{Account.count}"
+  
+  (1..4).each do |x|
+    Expense.create_object(
+      :amount => BigDecimal( "50000"),
+      :name => "Dinner at Bornga #{x}",
+      :description => "bla blablba ",
+      :account_id => networking_meal_account.id ,
+      :user_id => admin.id ,
+      :expensed_at => DateTime.now ,
+      :venue_id => Venue.first.id ,
+      :project_id => Project.first.id 
+    )
+  end
+  
+  puts "Total expense: #{Expense.count}"
   
   
